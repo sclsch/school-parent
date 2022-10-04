@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    # \u6570\u636E\u6E90\u57FA\u672C\u914D\u7F6E
+    url: jdbc:mysql://localhost:3306/school?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .html
+server:
+  port: 8888
+debug: true
+
+

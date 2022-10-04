@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="work.hdjava.school.mapper.UniversityRankMapper">
+  <resultMap id="BaseResultMap" type="work.hdjava.school.domain.UniversityRank">
+    <!--@mbg.generated-->
+    <!--@Table univercity_rank-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="score" jdbcType="VARCHAR" property="score" />
+    <result column="majar" jdbcType="VARCHAR" property="majar" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+    <result column="rank" jdbcType="INTEGER" property="rank" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="op_date" jdbcType="TIMESTAMP" property="opDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `type`, score, majar, `year`, `rank`, school, op_date
+  </sql>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="work.hdjava.school.domain.UniversityRank" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into univercity_rank
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="majar != null">
+        majar,
+      </if>
+      <if test="year != null">
+        `year`,
+      </if>
+      <if test="rank != null">
+        `rank`,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="opDate != null">
+        op_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="majar != null">
+        #{majar,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="opDate != null">
+        #{opDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="work.hdjava.school.domain.UniversityRank">
+    <!--@mbg.generated-->
+    update univercity_rank
+    <set>
+      <if test="type != null">
+        `type` = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="majar != null">
+        majar = #{majar,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        `year` = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        `rank` = #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="opDate != null">
+        op_date = #{opDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update univercity_rank
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="`type` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.type,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="score = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.score,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="majar = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.majar,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`year` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.year,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`rank` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.rank,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="school = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.school,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="op_date = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.opDate,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update univercity_rank
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="`type` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.type != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.type,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="score = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.score != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.score,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="majar = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.majar != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.majar,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`year` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.year != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.year,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`rank` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.rank != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.rank,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="school = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.school != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.school,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="op_date = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.opDate != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.opDate,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into univercity_rank
+    (`type`, score, majar, `year`, `rank`, school, op_date)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.type,jdbcType=VARCHAR}, #{item.score,jdbcType=VARCHAR}, #{item.majar,jdbcType=VARCHAR}, 
+        #{item.year,jdbcType=VARCHAR}, #{item.rank,jdbcType=INTEGER}, #{item.school,jdbcType=VARCHAR}, 
+        #{item.opDate,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="work.hdjava.school.domain.UniversityRank" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into univercity_rank
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      `type`,
+      score,
+      majar,
+      `year`,
+      `rank`,
+      school,
+      op_date,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      #{type,jdbcType=VARCHAR},
+      #{score,jdbcType=VARCHAR},
+      #{majar,jdbcType=VARCHAR},
+      #{year,jdbcType=VARCHAR},
+      #{rank,jdbcType=INTEGER},
+      #{school,jdbcType=VARCHAR},
+      #{opDate,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      `type` = #{type,jdbcType=VARCHAR},
+      score = #{score,jdbcType=VARCHAR},
+      majar = #{majar,jdbcType=VARCHAR},
+      `year` = #{year,jdbcType=VARCHAR},
+      `rank` = #{rank,jdbcType=INTEGER},
+      school = #{school,jdbcType=VARCHAR},
+      op_date = #{opDate,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="work.hdjava.school.domain.UniversityRank" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into univercity_rank
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="majar != null">
+        majar,
+      </if>
+      <if test="year != null">
+        `year`,
+      </if>
+      <if test="rank != null">
+        `rank`,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="opDate != null">
+        op_date,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="majar != null">
+        #{majar,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="opDate != null">
+        #{opDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="majar != null">
+        majar = #{majar,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        `year` = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        `rank` = #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="opDate != null">
+        op_date = #{opDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
