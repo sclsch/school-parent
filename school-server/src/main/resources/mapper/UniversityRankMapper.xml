@@ -3,8 +3,9 @@
 <mapper namespace="work.hdjava.school.mapper.UniversityRankMapper">
   <resultMap id="BaseResultMap" type="work.hdjava.school.domain.UniversityRank">
     <!--@mbg.generated-->
-    <!--@Table univercity_rank-->
+    <!--@Table university_rank-->
     <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="score" jdbcType="VARCHAR" property="score" />
     <result column="majar" jdbcType="VARCHAR" property="majar" />
@@ -12,93 +13,31 @@
     <result column="rank" jdbcType="INTEGER" property="rank" />
     <result column="school" jdbcType="VARCHAR" property="school" />
     <result column="op_date" jdbcType="TIMESTAMP" property="opDate" />
+    <result column="extr1" jdbcType="VARCHAR" property="extr1" />
+    <result column="extr2" jdbcType="VARCHAR" property="extr2" />
+    <result column="extr3" jdbcType="VARCHAR" property="extr3" />
+    <result column="extr4" jdbcType="VARCHAR" property="extr4" />
+    <result column="extr5" jdbcType="VARCHAR" property="extr5" />
+    <result column="extr6" jdbcType="VARCHAR" property="extr6" />
+    <result column="extr7" jdbcType="VARCHAR" property="extr7" />
+    <result column="extr8" jdbcType="VARCHAR" property="extr8" />
+    <result column="extr9" jdbcType="VARCHAR" property="extr9" />
+    <result column="extr10" jdbcType="VARCHAR" property="extr10" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, `type`, score, majar, `year`, `rank`, school, op_date
+    id, area, `type`, score, majar, `year`, `rank`, school, op_date, extr1, extr2, extr3, 
+    extr4, extr5, extr6, extr7, extr8, extr9, extr10
   </sql>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="work.hdjava.school.domain.UniversityRank" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into univercity_rank
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="type != null">
-        `type`,
-      </if>
-      <if test="score != null">
-        score,
-      </if>
-      <if test="majar != null">
-        majar,
-      </if>
-      <if test="year != null">
-        `year`,
-      </if>
-      <if test="rank != null">
-        `rank`,
-      </if>
-      <if test="school != null">
-        school,
-      </if>
-      <if test="opDate != null">
-        op_date,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="type != null">
-        #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="score != null">
-        #{score,jdbcType=VARCHAR},
-      </if>
-      <if test="majar != null">
-        #{majar,jdbcType=VARCHAR},
-      </if>
-      <if test="year != null">
-        #{year,jdbcType=VARCHAR},
-      </if>
-      <if test="rank != null">
-        #{rank,jdbcType=INTEGER},
-      </if>
-      <if test="school != null">
-        #{school,jdbcType=VARCHAR},
-      </if>
-      <if test="opDate != null">
-        #{opDate,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="work.hdjava.school.domain.UniversityRank">
-    <!--@mbg.generated-->
-    update univercity_rank
-    <set>
-      <if test="type != null">
-        `type` = #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="score != null">
-        score = #{score,jdbcType=VARCHAR},
-      </if>
-      <if test="majar != null">
-        majar = #{majar,jdbcType=VARCHAR},
-      </if>
-      <if test="year != null">
-        `year` = #{year,jdbcType=VARCHAR},
-      </if>
-      <if test="rank != null">
-        `rank` = #{rank,jdbcType=INTEGER},
-      </if>
-      <if test="school != null">
-        school = #{school,jdbcType=VARCHAR},
-      </if>
-      <if test="opDate != null">
-        op_date = #{opDate,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
   <update id="updateBatch" parameterType="java.util.List">
     <!--@mbg.generated-->
-    update univercity_rank
+    update university_rank
     <trim prefix="set" suffixOverrides=",">
+      <trim prefix="area = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.area,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
       <trim prefix="`type` = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
           when id = #{item.id,jdbcType=INTEGER} then #{item.type,jdbcType=VARCHAR}
@@ -134,6 +73,56 @@
           when id = #{item.id,jdbcType=INTEGER} then #{item.opDate,jdbcType=TIMESTAMP}
         </foreach>
       </trim>
+      <trim prefix="extr1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.extr1,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="extr2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.extr2,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="extr3 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.extr3,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="extr4 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.extr4,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="extr5 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.extr5,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="extr6 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.extr6,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="extr7 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.extr7,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="extr8 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.extr8,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="extr9 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.extr9,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="extr10 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.extr10,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
     </trim>
     where id in
     <foreach close=")" collection="list" item="item" open="(" separator=", ">
@@ -142,8 +131,15 @@
   </update>
   <update id="updateBatchSelective" parameterType="java.util.List">
     <!--@mbg.generated-->
-    update univercity_rank
+    update university_rank
     <trim prefix="set" suffixOverrides=",">
+      <trim prefix="area = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.area != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.area,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
       <trim prefix="`type` = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
           <if test="item.type != null">
@@ -193,6 +189,76 @@
           </if>
         </foreach>
       </trim>
+      <trim prefix="extr1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extr1 != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.extr1,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="extr2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extr2 != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.extr2,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="extr3 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extr3 != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.extr3,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="extr4 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extr4 != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.extr4,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="extr5 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extr5 != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.extr5,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="extr6 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extr6 != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.extr6,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="extr7 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extr7 != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.extr7,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="extr8 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extr8 != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.extr8,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="extr9 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extr9 != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.extr9,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="extr10 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.extr10 != null">
+            when id = #{item.id,jdbcType=INTEGER} then #{item.extr10,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
     </trim>
     where id in
     <foreach close=")" collection="list" item="item" open="(" separator=", ">
@@ -201,22 +267,28 @@
   </update>
   <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into univercity_rank
-    (`type`, score, majar, `year`, `rank`, school, op_date)
+    insert into university_rank
+    (area, `type`, score, majar, `year`, `rank`, school, op_date, extr1, extr2, extr3, 
+      extr4, extr5, extr6, extr7, extr8, extr9, extr10)
     values
     <foreach collection="list" item="item" separator=",">
-      (#{item.type,jdbcType=VARCHAR}, #{item.score,jdbcType=VARCHAR}, #{item.majar,jdbcType=VARCHAR}, 
-        #{item.year,jdbcType=VARCHAR}, #{item.rank,jdbcType=INTEGER}, #{item.school,jdbcType=VARCHAR}, 
-        #{item.opDate,jdbcType=TIMESTAMP})
+      (#{item.area,jdbcType=VARCHAR}, #{item.type,jdbcType=VARCHAR}, #{item.score,jdbcType=VARCHAR}, 
+        #{item.majar,jdbcType=VARCHAR}, #{item.year,jdbcType=VARCHAR}, #{item.rank,jdbcType=INTEGER}, 
+        #{item.school,jdbcType=VARCHAR}, #{item.opDate,jdbcType=TIMESTAMP}, #{item.extr1,jdbcType=VARCHAR}, 
+        #{item.extr2,jdbcType=VARCHAR}, #{item.extr3,jdbcType=VARCHAR}, #{item.extr4,jdbcType=VARCHAR}, 
+        #{item.extr5,jdbcType=VARCHAR}, #{item.extr6,jdbcType=VARCHAR}, #{item.extr7,jdbcType=VARCHAR}, 
+        #{item.extr8,jdbcType=VARCHAR}, #{item.extr9,jdbcType=VARCHAR}, #{item.extr10,jdbcType=VARCHAR}
+        )
     </foreach>
   </insert>
   <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="work.hdjava.school.domain.UniversityRank" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into univercity_rank
+    insert into university_rank
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
+      area,
       `type`,
       score,
       majar,
@@ -224,12 +296,23 @@
       `rank`,
       school,
       op_date,
+      extr1,
+      extr2,
+      extr3,
+      extr4,
+      extr5,
+      extr6,
+      extr7,
+      extr8,
+      extr9,
+      extr10,
     </trim>
     values
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
+      #{area,jdbcType=VARCHAR},
       #{type,jdbcType=VARCHAR},
       #{score,jdbcType=VARCHAR},
       #{majar,jdbcType=VARCHAR},
@@ -237,12 +320,23 @@
       #{rank,jdbcType=INTEGER},
       #{school,jdbcType=VARCHAR},
       #{opDate,jdbcType=TIMESTAMP},
+      #{extr1,jdbcType=VARCHAR},
+      #{extr2,jdbcType=VARCHAR},
+      #{extr3,jdbcType=VARCHAR},
+      #{extr4,jdbcType=VARCHAR},
+      #{extr5,jdbcType=VARCHAR},
+      #{extr6,jdbcType=VARCHAR},
+      #{extr7,jdbcType=VARCHAR},
+      #{extr8,jdbcType=VARCHAR},
+      #{extr9,jdbcType=VARCHAR},
+      #{extr10,jdbcType=VARCHAR},
     </trim>
     on duplicate key update 
     <trim suffixOverrides=",">
       <if test="id != null">
         id = #{id,jdbcType=INTEGER},
       </if>
+      area = #{area,jdbcType=VARCHAR},
       `type` = #{type,jdbcType=VARCHAR},
       score = #{score,jdbcType=VARCHAR},
       majar = #{majar,jdbcType=VARCHAR},
@@ -250,14 +344,27 @@
       `rank` = #{rank,jdbcType=INTEGER},
       school = #{school,jdbcType=VARCHAR},
       op_date = #{opDate,jdbcType=TIMESTAMP},
+      extr1 = #{extr1,jdbcType=VARCHAR},
+      extr2 = #{extr2,jdbcType=VARCHAR},
+      extr3 = #{extr3,jdbcType=VARCHAR},
+      extr4 = #{extr4,jdbcType=VARCHAR},
+      extr5 = #{extr5,jdbcType=VARCHAR},
+      extr6 = #{extr6,jdbcType=VARCHAR},
+      extr7 = #{extr7,jdbcType=VARCHAR},
+      extr8 = #{extr8,jdbcType=VARCHAR},
+      extr9 = #{extr9,jdbcType=VARCHAR},
+      extr10 = #{extr10,jdbcType=VARCHAR},
     </trim>
   </insert>
   <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="work.hdjava.school.domain.UniversityRank" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into univercity_rank
+    insert into university_rank
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
+      </if>
+      <if test="area != null">
+        area,
       </if>
       <if test="type != null">
         `type`,
@@ -280,11 +387,44 @@
       <if test="opDate != null">
         op_date,
       </if>
+      <if test="extr1 != null">
+        extr1,
+      </if>
+      <if test="extr2 != null">
+        extr2,
+      </if>
+      <if test="extr3 != null">
+        extr3,
+      </if>
+      <if test="extr4 != null">
+        extr4,
+      </if>
+      <if test="extr5 != null">
+        extr5,
+      </if>
+      <if test="extr6 != null">
+        extr6,
+      </if>
+      <if test="extr7 != null">
+        extr7,
+      </if>
+      <if test="extr8 != null">
+        extr8,
+      </if>
+      <if test="extr9 != null">
+        extr9,
+      </if>
+      <if test="extr10 != null">
+        extr10,
+      </if>
     </trim>
     values
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
         #{type,jdbcType=VARCHAR},
@@ -307,11 +447,44 @@
       <if test="opDate != null">
         #{opDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="extr1 != null">
+        #{extr1,jdbcType=VARCHAR},
+      </if>
+      <if test="extr2 != null">
+        #{extr2,jdbcType=VARCHAR},
+      </if>
+      <if test="extr3 != null">
+        #{extr3,jdbcType=VARCHAR},
+      </if>
+      <if test="extr4 != null">
+        #{extr4,jdbcType=VARCHAR},
+      </if>
+      <if test="extr5 != null">
+        #{extr5,jdbcType=VARCHAR},
+      </if>
+      <if test="extr6 != null">
+        #{extr6,jdbcType=VARCHAR},
+      </if>
+      <if test="extr7 != null">
+        #{extr7,jdbcType=VARCHAR},
+      </if>
+      <if test="extr8 != null">
+        #{extr8,jdbcType=VARCHAR},
+      </if>
+      <if test="extr9 != null">
+        #{extr9,jdbcType=VARCHAR},
+      </if>
+      <if test="extr10 != null">
+        #{extr10,jdbcType=VARCHAR},
+      </if>
     </trim>
     on duplicate key update 
     <trim suffixOverrides=",">
       <if test="id != null">
         id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
         `type` = #{type,jdbcType=VARCHAR},
@@ -333,6 +506,36 @@
       </if>
       <if test="opDate != null">
         op_date = #{opDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="extr1 != null">
+        extr1 = #{extr1,jdbcType=VARCHAR},
+      </if>
+      <if test="extr2 != null">
+        extr2 = #{extr2,jdbcType=VARCHAR},
+      </if>
+      <if test="extr3 != null">
+        extr3 = #{extr3,jdbcType=VARCHAR},
+      </if>
+      <if test="extr4 != null">
+        extr4 = #{extr4,jdbcType=VARCHAR},
+      </if>
+      <if test="extr5 != null">
+        extr5 = #{extr5,jdbcType=VARCHAR},
+      </if>
+      <if test="extr6 != null">
+        extr6 = #{extr6,jdbcType=VARCHAR},
+      </if>
+      <if test="extr7 != null">
+        extr7 = #{extr7,jdbcType=VARCHAR},
+      </if>
+      <if test="extr8 != null">
+        extr8 = #{extr8,jdbcType=VARCHAR},
+      </if>
+      <if test="extr9 != null">
+        extr9 = #{extr9,jdbcType=VARCHAR},
+      </if>
+      <if test="extr10 != null">
+        extr10 = #{extr10,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
