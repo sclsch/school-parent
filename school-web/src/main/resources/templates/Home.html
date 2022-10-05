@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大学排名</title>
-    <script src="../static/jquery.min.js"></script>
-    <script src="../static/jquery.pager.js"></script>
+    <script src="/static/jquery.min.js"></script>
+    <script src="/static/jquery.pager.js"></script>
     <style>
         *{ margin:0; padding:0;}
         .rank{
@@ -29,9 +29,111 @@
             padding: 5px;
             text-align: center;
             margin: 0;
-
+        }
+        .page{
+            clear: both;
+        }
+        .page a{
+            display: inline-block;
+            font-size: 12px;
+            padding: 5px;
         }
     </style>
+    <script>
+        $(document).ready(function() {
+            const pageIndex = 1;
+            const pageSize = 20;
+            let pages = 0;
+            pageData(pageIndex,pageSize);
+            function pageData(pageIndex,pageSize){
+                $.ajax({
+                    type: "get",
+                    url: "http://localhost:8888/university/list?pageIndex=" + pageIndex + "&pageSize=" + pageSize,
+                    async: false,//不是异步加载,让ajax先执行
+                    dataType: "json",
+                    success: function(data) {
+                        console.log(data)
+                        $(".rank .header").nextAll().remove()
+                        divData = "";
+                        data.data.records.forEach(function(e,i,arr){
+                            divData += "<ul>";
+                            divData += "<li>" + e.rank + "</li>"
+                            divData += "<li>" + e.school + "</li>"
+                            divData += "<li>" + e.school + "</li>"
+                            divData += "<li>" + e.type + "</li>"
+                            divData += "<li>" + e.score + "</li>"
+                            divData += "</ul>";
+                        });
+                        pages = data.data.pages
+                        let current = data.data.current
+                        let total = data.data.total
+                        let size = data.data.size
+
+                        let first = 1
+                        let end = 1
+                        let last = 1;
+                        let next = 1;
+                        if(current == 1 || pages == 1){
+                            first = 0
+                            last = 0
+                        }
+                        if(current == pages){
+                            end = 0
+                            next= 0
+                        }
+                        if(current >= 5){
+
+                        }
+
+                        divData += "<div class='page'>"
+                        if(first == 1){
+                            divData += "<a class='first' href=‘#’ >首页</a>"
+                        }else{
+                            divData += "<a style=\"pointer-events: none;cursor: default;color:gray;\" href=‘#’ class>首页</a>"
+                        }
+                        if(last == 1){
+                            divData += "<a class='last' href=‘#’ >上一页</a>"
+                        }else{
+                            divData += "<a style=\"pointer-events: none;cursor: default;color:gray;\" href=‘#’ class>上一页</a>"
+                        }
+                        divData += "<a href=‘#’ style=\"pointer-events: none;cursor: default;color:gray;\">当前" + current + "页</a>"
+                        if(next == 1){
+                            divData += "<a class='next' href=‘#’  >下一页</a>"
+                        }else{
+                            divData += "<a style=\"pointer-events: none;cursor: default;color:gray;\" href=‘#’ class>下一页</a>"
+                        }
+                        if(end == 1){
+                            divData += "<a class='end' href=‘#’ >末页</a>"
+                        }else{
+                            divData += "<a style=\"pointer-events: none;cursor: default;color:gray;\" href=‘#’ class>末页</a>"
+                        }
+                        divData += "</div>"
+                        $(".rank .header").after(divData)
+
+                        $(".end").on("click",function (event){
+                            event.preventDefault();
+                            pageData(pages,pageSize);
+                        });
+
+                        $(".next").on("click",function (event){
+                            event.preventDefault();
+                            pageData(pageIndex + 1,pageSize);
+                        });
+                        $(".first").on("click",function (event){
+                            event.preventDefault();
+                            pageData(1,pageSize);
+                        });
+                        $(".last").on("click",function (event){
+                            event.preventDefault();
+                            pageData(pageIndex - 1,pageSize);
+                        });
+
+                    }
+                });
+            }
+        });
+
+    </script>
 </head>
 
 <body>
@@ -48,33 +150,7 @@
 
        </div>
    </div>
-<script>
-    $(document).ready(function() {
-            $.ajax({
-                type: "get",
-                url: "http://localhost:8888/university/list?pageIndex="+1+"&pageSize="+1,
-                async: false,//不是异步加载,让ajax先执行
-                dataType: "json",
-                success: function(data) {
-                    console.log(data)
-                    divData = "";
-                    data.data.records.forEach(function(e,i,arr){
-                        divData += "<ul>";
-                        divData += "<li>" + e.rank + "</li>"
-                        divData += "<li>" + e.school + "</li>"
-                        divData += "<li>" + e.school + "</li>"
-                        divData += "<li>" + e.type + "</li>"
-                        divData += "<li>" + e.score + "</li>"
-                        divData += "</ul>";
-                    });
-                    $(".rank .header").after(divData)
-                }
-            });
 
-
-    });
-
-</script>
 
 
 </body>
