@@ -28,7 +28,7 @@
         .rank ul li{
             float: left;
             display: block;
-            width: 208px;
+            width: 180px;
             border: 1px solid #ccc;
             padding: 5px;
             text-align: center;
@@ -51,12 +51,15 @@
    <div class="schools">
        <div class="search"></div>
        <div class="rank">
+           <div class="tip">4月19日，高等教育评价专业机构软科正式发布2022中国大学排名。清华大学、北京大学、浙江大学连续8年蝉联全国三甲，实力强劲。上海交通大学、复旦大学位列全国前五。</div>
            <ul class="row header">
                <li>排名</li>
                <li>学校名称</li>
                <li>省市</li>
                <li>学校类型</li>
                <li>总得分</li>
+               <li>专业</li>
+               <li>年份</li>
            </ul>
 
        </div>
@@ -89,6 +92,8 @@
                         divData += "<li>" + e.area + "</li>"
                         divData += "<li>" + e.type + "</li>"
                         divData += "<li>" + e.score + "</li>"
+                        divData += "<li>" + e.majar + "</li>"
+                        divData += "<li>" + e.extr1 + "</li>"
                         divData += "</ul>";
                     });
                     pages = data.data.pages
