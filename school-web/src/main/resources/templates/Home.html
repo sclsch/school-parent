@@ -5,24 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大学排名</title>
-    <script src="/static/jquery.min.js"></script>
+    <script src="../static/jquery.min.js"></script>
+    <script src="../static/jquery.pager.js"></script>
+    <style>
+        .pager { display: inline-block; font: 12 px/21px "宋体"; margin-top: 20px; }
+        .pager a, .pager .flip, .pager .curPage { border: 1px solid #e3e3e3; display: inline-block; height: 22px; line-height: 22px; text-align: center; }
+        .pager a { background: none repeat scroll 0 0 #fff; color: #010101; text-decoration: none; width: 26px; }
+        .pager a:hover { background: none repeat scroll 0 0 #f1f1f1; }
+        .pager .noPage { color: #a4a4a4; }
+        .pager .curPage { background: none repeat scroll 0 0 #49abde; color: #ffffff; width: 26px; }
+        .pager .flip { width: 56px; }
+    </style>
 </head>
 
 <body>
-
-
+    <h1 id="result">Click the pager below.</h1>
+    <div id="pager" ></div>
 <script>
     $(document).ready(function() {
-        $.ajax({
-            url: "http://localhost:8888/university/list",
-            type: "get",
-            headers: {
-                "Authorization":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2tleSI6ImZkZmJhNzNjLWU1MmQtNDcxMC1iZjNmLTc2NzVmYTk3YmYzZSIsInVzZXJuYW1lIjoiYWRtaW4ifQ.f90XdHcOMdFfp26F07G5G6NTaojMDCp5jGGs_d9X3gk6VhDwlLac7TaxKdE1AlAvq5atQrjjivqHw1oS7_8afw"
-            },
-            success: function (data) {
-                console.log(data);
-            }
-        });
+        $("#pager").pager({ pagenumber: 1, pagecount: 15, buttonClickCallback: PageClick });
+        var PageClick = function (pageclickednumber) {
+            alert(pageclickednumber);
+            $("#pager").pager({pagenumber: pageclickednumber, pagecount: 15, buttonClickCallback: PageClick});
+            $("#result").html("Clicked Page " + pageclickednumber);
+        }
+        function getDate(page,rows){
+            $.ajax({
+                type: "get",
+                url: "http://localhost:8888/university/list?pageIndex="+page+"&pageSize="+rows,
+                async: false,//不是异步加载,让ajax先执行
+                dataType: "json",
+                success: function(data) {
+                    console.log(data)
+                    // $("#promotionresult").empty();
+                    total = data.data.total;
+                    // $.each(data.pageData, function(i, item) {
+                    //     var str = '<div class="result col-md-3">';
+                    //     //拼接对象展示
+                    //     str += '<div class="thumbnail"></div>';
+                    //
+                    // });
+                }
+            });
+        }
+
 
     });
 

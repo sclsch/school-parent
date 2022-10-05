@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import work.hdjava.school.domain.UniversityRank;
+import work.hdjava.school.dto.R;
 import work.hdjava.school.service.UniversityRankService;
 
 @RestController
@@ -17,11 +18,11 @@ public class UniversityRankController {
 	private UniversityRankService universityRankService;
 	
 	@GetMapping("/university/list")
-	public ResponseEntity univercityList(UniversityRank universityRank) {
+	public R univercityList(UniversityRank universityRank) {
 		Page<UniversityRank> hisPage = new Page<>(universityRank.getPageIndex(), universityRank.getPageSize());
 		QueryWrapper<UniversityRank> queryWrapper = new QueryWrapper<>();
 		queryWrapper.orderBy(true,true,"`rank`");
 		Page<UniversityRank> page = universityRankService.page(hisPage, queryWrapper);
-		return ResponseEntity.ok(page);
+		return R.ok(page);
 	}
 }
