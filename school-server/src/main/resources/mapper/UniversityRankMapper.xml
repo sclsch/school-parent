@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="work.hdjava.school.server.mapper.UniversityRankMapper">
-  <resultMap id="BaseResultMap" type="work.hdjava.school.server.domain.UniversityRank">
+<mapper namespace="work.hdjava.school.auth.mapper.UniversityRankMapper">
+  <resultMap id="BaseResultMap" type="work.hdjava.school.auth.domain.UniversityRank">
     <!--@mbg.generated-->
     <!--@Table university_rank-->
     <id column="id" jdbcType="INTEGER" property="id" />
@@ -281,7 +281,7 @@
         )
     </foreach>
   </insert>
-  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="work.hdjava.school.server.domain.UniversityRank" useGeneratedKeys="true">
+  <insert id="insertOrUpdate" keyColumn="id" keyProperty="id" parameterType="work.hdjava.school.auth.domain.UniversityRank" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into university_rank
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -356,7 +356,7 @@
       extr10 = #{extr10,jdbcType=VARCHAR},
     </trim>
   </insert>
-  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="work.hdjava.school.server.domain.UniversityRank" useGeneratedKeys="true">
+  <insert id="insertOrUpdateSelective" keyColumn="id" keyProperty="id" parameterType="work.hdjava.school.auth.domain.UniversityRank" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into university_rank
     <trim prefix="(" suffix=")" suffixOverrides=",">

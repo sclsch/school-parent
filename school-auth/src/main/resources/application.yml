@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/school?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+
+server:
+  port: 8890
+
+logging:
+  level:
+    root: info
+    com.learn.mapper: debug
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+

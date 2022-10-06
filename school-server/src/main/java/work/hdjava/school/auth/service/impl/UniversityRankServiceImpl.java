@@ -1,12 +1,12 @@
-package work.hdjava.school.server.service.impl;
+package work.hdjava.school.auth.service.impl;
 
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import work.hdjava.school.server.domain.UniversityRank;
-import work.hdjava.school.server.mapper.UniversityRankMapper;
-import work.hdjava.school.server.service.UniversityRankService;
+import work.hdjava.school.auth.domain.UniversityRank;
+import work.hdjava.school.auth.mapper.UniversityRankMapper;
+import work.hdjava.school.auth.service.UniversityRankService;
 
 /**
  * Author suncl

@@ -1,7 +1,7 @@
-package work.hdjava.school.server.service;
+package work.hdjava.school.auth.service;
 
 import java.util.List;
-import work.hdjava.school.server.domain.UniversityRank;
+import work.hdjava.school.auth.domain.UniversityRank;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

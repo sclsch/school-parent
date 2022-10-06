@@ -6,7 +6,6 @@
 		<groupId>work.hdjava</groupId>
 		<artifactId>school-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>work.hdjava</groupId>
 	<artifactId>shcool-web</artifactId>
