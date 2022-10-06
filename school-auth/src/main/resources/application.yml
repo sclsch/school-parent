@@ -10,11 +10,6 @@ spring:
 server:
   port: 8890
 
-logging:
-  level:
-    root: info
-    com.learn.mapper: debug
-
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 
