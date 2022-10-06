@@ -1,4 +1,4 @@
-package work.hdjava.shcoolweb.controller;
+package work.hdjava.shcool.web.controller;
 
 
 import org.springframework.stereotype.Controller;

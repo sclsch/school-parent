@@ -1,7 +1,7 @@
-package work.hdjava.school.service;
+package work.hdjava.school.server.service;
 
 import java.util.List;
-import work.hdjava.school.domain.UniversityRank;
+import work.hdjava.school.server.domain.UniversityRank;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -10,11 +10,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * Description:  该文件的描述
  */
 public interface UniversityRankService extends IService<UniversityRank> {
-
-
-    int insertSelective(UniversityRank record);
-
-    int updateByPrimaryKeySelective(UniversityRank record);
 
     int updateBatch(List<UniversityRank> list);
 

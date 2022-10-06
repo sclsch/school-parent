@@ -1,4 +1,4 @@
-package work.hdjava.school.domain;
+package work.hdjava.school.server.domain;
 
 import com.alibaba.excel.annotation.ExcelIgnore;import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

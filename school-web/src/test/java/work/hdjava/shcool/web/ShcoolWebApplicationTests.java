@@ -1,4 +1,4 @@
-package work.hdjava.shcoolweb;
+package work.hdjava.shcool.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

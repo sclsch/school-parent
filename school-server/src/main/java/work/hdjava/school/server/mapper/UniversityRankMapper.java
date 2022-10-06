@@ -1,10 +1,10 @@
-package work.hdjava.school.mapper;
+package work.hdjava.school.server.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import work.hdjava.school.domain.UniversityRank;
+import work.hdjava.school.server.domain.UniversityRank;
 
 /**
  * Author suncl
@@ -13,9 +13,6 @@ import work.hdjava.school.domain.UniversityRank;
  */
 @Mapper
 public interface UniversityRankMapper extends BaseMapper<UniversityRank> {
-    int insertSelective(UniversityRank record);
-
-    int updateByPrimaryKeySelective(UniversityRank record);
 
     int updateBatch(List<UniversityRank> list);
 

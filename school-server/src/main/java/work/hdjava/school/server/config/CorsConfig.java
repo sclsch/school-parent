@@ -1,4 +1,4 @@
-package work.hdjava.school.config;
+package work.hdjava.school.server.config;
  
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

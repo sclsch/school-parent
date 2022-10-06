@@ -1,12 +1,12 @@
-package work.hdjava.school.service.impl;
+package work.hdjava.school.server.service.impl;
 
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import work.hdjava.school.domain.UniversityRank;
-import work.hdjava.school.mapper.UniversityRankMapper;
-import work.hdjava.school.service.UniversityRankService;
+import work.hdjava.school.server.domain.UniversityRank;
+import work.hdjava.school.server.mapper.UniversityRankMapper;
+import work.hdjava.school.server.service.UniversityRankService;
 
 /**
  * Author suncl
@@ -16,15 +16,7 @@ import work.hdjava.school.service.UniversityRankService;
 @Service
 public class UniversityRankServiceImpl extends ServiceImpl<UniversityRankMapper, UniversityRank> implements UniversityRankService {
 
-    @Override
-    public int insertSelective(UniversityRank record) {
-        return baseMapper.insertSelective(record);
-    }
 
-    @Override
-    public int updateByPrimaryKeySelective(UniversityRank record) {
-        return baseMapper.updateByPrimaryKeySelective(record);
-    }
 
     @Override
     public int updateBatch(List<UniversityRank> list) {

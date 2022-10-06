@@ -1,4 +1,4 @@
-package work.hdjava.school;
+package work.hdjava.school.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

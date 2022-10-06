@@ -1,4 +1,4 @@
-package work.hdjava.school.dto;
+package work.hdjava.school.server.dto;
 
 import lombok.*;
 import lombok.experimental.Accessors;
