@@ -2,6 +2,7 @@ package work.hdjava.school.auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -14,10 +15,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration//相当于在xml 里面配置了bean
 @EnableWebSecurity(debug = false)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-//    @Bean  //密码模式用到
-//   public AuthenticationManager authenticationManager() throws Exception {
-//      return    super.authenticationManager();
-//    }
+    @Bean  //密码模式用到
+    public AuthenticationManager authenticationManager() throws Exception {
+      return super.authenticationManager();
+    }
     //配置认证管理器，授权模式为“poassword”时会用到
     //配置服务详情
 //    @Bean

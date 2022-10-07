@@ -7,10 +7,17 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
 
+  redis:
+    host: 127.0.0.1
+    database: 0
+
 server:
-  port: 8890
+  port: 1111
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+
+
+
 
 
