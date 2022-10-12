@@ -6,7 +6,8 @@ spring:
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
-
+  application:
+    name: school-auth
   redis:
     host: 127.0.0.1
     database: 0

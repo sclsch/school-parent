@@ -34,9 +34,9 @@ public class AuthenticationFilter implements GlobalFilter, InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         // 不拦截认证的请求
-        shouldSkipUrl.add("/oauth/token");
-        shouldSkipUrl.add("/oauth/check_token");
-        shouldSkipUrl.add("/user/getCurrentUser");
+        shouldSkipUrl.add("/auth/oauth/token");
+        shouldSkipUrl.add("/auth/oauth/check_token");
+        shouldSkipUrl.add("/auth/user/getCurrentUser");
     }
 
     @Override

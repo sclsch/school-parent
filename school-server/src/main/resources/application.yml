@@ -13,7 +13,8 @@ spring:
         server-addr: http://localhost:8848
         username: nacos
         password: nacos
-
+  application:
+    name: school-server
 
 server:
   port: 2222
