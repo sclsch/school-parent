@@ -7,6 +7,14 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
 
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
+        username: nacos
+        password: nacos
+
+
 server:
   port: 2222
 
