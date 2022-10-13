@@ -83,6 +83,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
         //授权码模式
         //http://localhost:1111/oauth/authorize?response_type=code&client_id=client
+        //http://localhost:4444/oauth/authorize?response_type=code&client_id=client
         //password模式
         //http://localhost:1111/oauth/token?username=fox&password=123456&grant_type=password&client_id=client&client_secret=123123&scope=all
 

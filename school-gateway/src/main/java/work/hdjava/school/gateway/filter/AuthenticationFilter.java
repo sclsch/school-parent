@@ -39,6 +39,7 @@ public class AuthenticationFilter implements GlobalFilter, InitializingBean {
         shouldSkipUrl.add("/auth/user/getCurrentUser");
         shouldSkipUrl.add("/oauth/token");
         shouldSkipUrl.add("/oauth/check_token");
+        shouldSkipUrl.add("/oauth/authorize");
         shouldSkipUrl.add("/oauth/user/getCurrentUser");
     }
 
