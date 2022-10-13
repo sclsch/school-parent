@@ -6,7 +6,7 @@ package work.hdjava.school.gateway.common;
  */
 public class MDA {
 
-    public static final String clientId = "gateway-server";
+    public static final String clientId = "client";
 
     public static final String clientSecret = "123123";
 

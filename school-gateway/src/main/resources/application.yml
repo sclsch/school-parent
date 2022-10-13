@@ -28,7 +28,7 @@ spring:
       - id: school-auth
         uri: lb://school-auth
         predicates:
-        - Path=/auth/**
+        - Path=/auth/**,/oauth/**,/user/**
 
 
   main:
