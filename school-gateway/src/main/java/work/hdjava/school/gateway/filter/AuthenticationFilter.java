@@ -66,7 +66,7 @@ public class AuthenticationFilter implements GlobalFilter, InitializingBean {
             //获取token信息
             tokenInfo = getTokenInfo(authHeader);
         }catch (Exception e) {
-            throw new RuntimeException("校验令牌异常");
+            throw new RuntimeException(e.getMessage());
         }
         // tokenInfo
         exchange.getAttributes().put("tokenInfo",tokenInfo);

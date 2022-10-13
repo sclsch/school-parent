@@ -25,10 +25,14 @@ spring:
         uri: lb://school-server
         predicates:
         - Path=/school/**
+        filters:
+          - StripPrefix=1
       - id: school-auth
         uri: lb://school-auth
         predicates:
         - Path=/auth/**,/oauth/**,/user/**
+        filters:
+          - StripPrefix=1
 
 
   main:

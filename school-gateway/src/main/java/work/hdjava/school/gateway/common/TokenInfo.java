@@ -17,7 +17,7 @@ public class TokenInfo {
 	
 	private String[] scope;
 	
-	private String username;
+	private String user_name;
 	
 	private String[] aud;
 	

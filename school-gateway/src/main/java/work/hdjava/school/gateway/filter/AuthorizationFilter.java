@@ -5,6 +5,7 @@ import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 import work.hdjava.school.gateway.common.TokenInfo;
@@ -45,7 +46,10 @@ public class AuthorizationFilter implements GlobalFilter, InitializingBean {
             return chain.filter(exchange);
         }
         TokenInfo tokenInfo = exchange.getAttribute("tokenInfo");
-
+        if(StringUtils.isEmpty(tokenInfo.getUser_name())){
+            //客户端模式不需要检测权限
+            return chain.filter(exchange);
+        }
         if(!tokenInfo.isActive()) {
             throw new RuntimeException("token过期");
         }
